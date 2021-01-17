@@ -19,7 +19,7 @@ let finalTotalPrice = document.getElementsByClassName('cart-total-price')[0];
 addToCartClicked();
 removeCartItems();
 updateQuantity();
-
+purchaseAction();
 
 // DEFINE FUNCTIONS
 
@@ -113,6 +113,18 @@ function updateCartTotal(){
     } else{
         finalTotalPrice.innerText = '$' + parseFloat(total.toFixed(2));
     }
+}
+
+function purchaseAction(){
+    document.getElementsByClassName('btn-purchase')[0].addEventListener("click", function(){
+        alert('Thank you for your purchase');
+        let cartItems = document.getElementsByClassName("cart-items")[0];
+        while (cartItems.hasChildNodes()){
+            cartItems.removeChild(cartItems.firstChild);
+            updateCartTotal();
+
+        }
+    })
 }
 
 
